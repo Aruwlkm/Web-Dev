@@ -1,0 +1,57 @@
+body {
+    background-color: #f4f6f8;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color:brown;
+    font-size: 36px;
+}
+
+h2 {
+    color:brown;
+}
+
+#avatar {
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+#skills {
+    padding-left: 30px;
+}
+
+.hobbies li {
+    list-style-type: square;
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #eaeaea;
+}
+
+input, textarea {
+    width: 250px;
+}
