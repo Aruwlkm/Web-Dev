@@ -3,9 +3,11 @@
   <img [src]="product.image" width="400" />
 
   <h2>{{ product.name }}</h2>
-  <p>{{ product.description }}</p>
   <p>Price: {{ product.price }} ₸</p>
   <p>⭐ {{ product.rating }}</p>
+  <p style="white-space: pre-line">
+  {{ product.description }}
+</p>
 
   <a [href]="product.link" target="_blank">
     Open in Kaspi
