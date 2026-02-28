@@ -1,0 +1,30 @@
+<h1>Online Store</h1>
+
+<h2>Categories</h2>
+<div style="display:flex; gap:10px; margin-bottom:20px;">
+  @for (category of categories; track category.id) {
+    <button
+      (click)="selectCategory(category.id)"
+      [style.fontWeight]="selectedCategoryId === category.id ? 'bold' : 'normal'">
+      {{ category.name }}
+    </button>
+  }
+</div>
+<hr>
+<h2>⭐ Favorites ({{ favorites.length }})</h2>
+@if (favorites.length === 0) {
+  <p>No favorite products yet</p>
+} @else {
+  <app-product-list
+    [products]="favorites"
+    (delete)="handleDelete($event)"
+    (toggleFavorite)="toggleFavorite($event)">
+  </app-product-list>
+}
+<hr>
+<h2>Products</h2>
+<app-product-list
+  [products]="selectedProducts"
+  (delete)="handleDelete($event)"
+  (toggleFavorite)="toggleFavorite($event)">
+</app-product-list>

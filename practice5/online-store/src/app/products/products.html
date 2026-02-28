@@ -1,0 +1,11 @@
+<div class="products">
+  @for (product of products; track product.id) {
+
+    <app-product-details
+      [product]="product"
+      (delete)="handleDelete($event)"
+      (toggleFavorite)="handleToggleFavorite($event)">
+    </app-product-details>
+
+  }
+</div>

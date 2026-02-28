@@ -1,0 +1,11 @@
+.products {
+  display: flex;
+  gap: 40px;
+  flex-wrap:wrap;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+}
