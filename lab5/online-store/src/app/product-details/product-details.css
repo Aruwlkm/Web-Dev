@@ -1,0 +1,76 @@
+:host {
+  width: 270px;
+  display: block;
+}
+
+.card {
+  background:#ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  height:520px;
+  display:flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+.kaspi-link{
+    margin-top:auto;
+    display:flex;
+    gap:8px;
+}
+.actions{
+    margin-top:auto;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+button {
+  margin-top: 8px;
+  margin-right: 6px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+like {
+  background: #e6e6e6;
+}
+
+.like:hover {
+  background: #ffeaa7;
+}
+.delete {
+  background: #f8d7da;
+}
+
+.delete:hover {
+  background: #f5b5bb;
+}
+.share {
+  background: #d4edda;
+}

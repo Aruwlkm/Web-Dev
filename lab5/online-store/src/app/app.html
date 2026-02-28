@@ -1,4 +1,12 @@
 <h1>Online Store</h1>
-
+<div class="categories">
+  @for (category of categories; track category.id) {
+    <button
+      (click)="selectCategory(category.id)"
+      [class.active]="selectedCategoryId === category.id">
+      {{ category.name }}
+    </button>
+  }
+</div>
 <router-outlet></router-outlet>
 

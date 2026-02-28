@@ -8,18 +8,13 @@
   <p>⭐ {{ product.rating }}</p>
   <p>❤️ {{ product.likes }}</p>
 
-  <a [href]="product.link" target="_blank">
+  <a class="kaspi-link" href="{{product.link}}" target="_blank">
     Open in Kaspi
   </a>
-
-  <button (click)="like()">Like</button>
-
-  <button (click)="deleteProduct()">
-    Delete
-  </button>
-
-  <button (click)="share()">
-    Share
-  </button>
+  <div class="actions">
+     <button class="like" (click)="like()">Like</button>
+     <button class="delete"(click)="deleteProduct()">Delete</button>
+     <button class="share" (click)="share()">Share</button>
+  </div>
 
 </div>
