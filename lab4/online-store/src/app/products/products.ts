@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { products } from '../products';
-import { RouterModule } from '@angular/router';
+import { Product } from '../product.model';
+import { ProductItemComponent } from '../product-details/product-details';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-product-list',
   standalone: true,
-  imports:[CommonModule, RouterModule],
+  imports: [CommonModule, ProductItemComponent],
   templateUrl: './products.html',
   styleUrls: ['./products.css']
 })
-export class ProductsComponent {
-  products = products;
-  share(product: any) {
-  const text = `Check this product: ${product.name} ${product.link}`;
-  const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank');
-}
+export class ProductListComponent {
 
+  @Input() products: Product[] = [];
+  @Output() delete = new EventEmitter<number>();
+
+  handleDelete(id: number) {
+    this.delete.emit(id);
 }
+} 

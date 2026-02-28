@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { products } from '../products';
+import { Product } from '../product.model';
 
 @Component({
-  selector: 'app-product-details',
+  selector: 'app-product-item',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product-details.html',
   styleUrls: ['./product-details.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductItemComponent {
 
-  product: any;
+  @Input() product!: Product;
+  @Output() delete = new EventEmitter<number>();
 
-  constructor(private route: ActivatedRoute) {}
+  like() {
+    this.product.likes++;
+  }
 
-  ngOnInit() {
-    const productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = products[productId];
+  deleteProduct() {
+    this.delete.emit(this.product.id);
+  }
+
+  share() {
+    const text = `Check this product: ${this.product.name} ${this.product.link}`;
+    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
   }
 }

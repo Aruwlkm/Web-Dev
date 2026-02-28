@@ -1,24 +1,10 @@
-<div class="grid">
-  <div class="card" *ngFor="let product of products; let i=index">
-
-    <img [src]="product.image" alt="{{product.name}}" width="200"/>
-    <h3>{{ product.name }}</h3>
-    <p>{{ product.description }}</p>
-    <p>{{ product.price }} ₸</p>
-    <p>⭐ {{ product.rating }}</p>
-
-    <a [href]="product.link" target="_blank">
-      Open in Kaspi
-    </a>
-
-    <button (click)="share(product)">
-      Share
-    </button>
-
-    <a [routerLink]="['/products', i]">
-      View details
-    </a>
-
-  </div>
+<div *ngIf="products.length === 0">
+  No products in this category
 </div>
+
+<app-product-item
+  *ngFor="let product of products"
+  [product]="product"
+  (delete)="handleDelete($event)">
+</app-product-item>
 
