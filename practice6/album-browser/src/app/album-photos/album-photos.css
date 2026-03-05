@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  text-align: center;
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 10px;
+}

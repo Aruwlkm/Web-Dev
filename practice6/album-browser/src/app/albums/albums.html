@@ -1,0 +1,32 @@
+<h2>Albums</h2>
+
+<div *ngIf="loading">Loading...</div>
+
+<button (click)="toggleView()">
+  {{ showFavoritesOnly ? 'Show all' : 'Show only favorites' }}
+</button>
+
+<span>Favorites: {{ favorites.length }}</span>
+
+<ul>
+  <li *ngFor="let album of filteredAlbums">
+
+    <a [routerLink]="['/albums', album.id]">
+      {{ album.id }} - {{ album.title }}
+    </a>
+
+    <button (click)="toggleFavorite(album.id)">
+      {{ isFavorite(album.id) ? '⭐' : '☆' }}
+    </button>
+
+    <button (click)="delete(album.id)">
+      Delete
+    </button>
+
+  </li>
+</ul>
+
+<div *ngIf="showFavoritesOnly && favorites.length === 0">
+  No favorites yet.
+  <button (click)="toggleView()">Show all albums</button>
+</div>
