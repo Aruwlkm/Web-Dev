@@ -1,8 +1,12 @@
 def first_last6(nums):
     return nums[0] == 6 or nums[-1] == 6
+nums = list(map(int, input().split()))
+print(first_last6(nums))
 
 def same_first_last(nums):
     return len(nums) >= 1 and nums[0] == nums[-1]
+nums = list(map(int, input().split()))
+print(same_first_last(nums))
 #count_evens
 def count_evens(nums):
     return sum(1 for num in nums if num % 2 == 0)
@@ -20,6 +24,8 @@ def sum13(nums):
             continue
         total += num
     return total
+nums = list(map(int, input().split()))
+print(same_first_last(nums))
 
 #cigar_party
 def cigar_party(cigars, is_weekend):
@@ -46,6 +52,8 @@ def make_abba(a, b):
 #string_times
 def string_times(string, n):
     return string * n
+nums = list(map(int, input().split()))
+print(sum13(nums))
 
 #front_times
 def front_times(string, n):
