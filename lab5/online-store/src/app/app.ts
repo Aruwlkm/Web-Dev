@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { products, categories } from './products';
 import { Product } from './product.model';
+import { Category } from './category.model';
 import { ProductListComponent } from './products/products';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -26,23 +27,41 @@ import { ProductListComponent } from './products/products';
     </app-product-list>
   `,
 })
-export class App {
 
-  categories = categories;
-  products = products;
+export class App implements OnInit {
 
-  selectedCategoryId = 1;
+  categories: Category[] = [];
+  products: Product[] = [];
+
+  selectedCategoryId = 0;
+
+  constructor(private api: ApiService) {}
+
+  ngOnInit() {
+  this.api.getCategories().subscribe((data: any) => {
+    this.categories = data;
+    if (this.categories.length > 0) {
+      this.selectedCategoryId = this.categories[0].id;
+    }
+  });
+
+  this.api.getProducts().subscribe((data: any) => {
+    console.log("PRODUCTS:", data);
+    this.products = data;
+  });
+}
 
   get filteredProducts(): Product[] {
     return this.products.filter(
-      p => p.categoryId === this.selectedCategoryId
+      (p: any) => p.category_id === this.selectedCategoryId
     );
   }
 
   selectCategory(id: number) {
     this.selectedCategoryId = id;
   }
+
   removeProduct(id: number) {
-  this.products = this.products.filter(p => p.id !== id);
-}
+    this.products = this.products.filter(p => p.id !== id);
+  }
 }
