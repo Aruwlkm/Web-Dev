@@ -1,0 +1,22 @@
+[
+    {
+        "type": "Dog",
+        "name": "Rex",
+        "age": 5,
+        "color": "Brown",
+        "breed": "Labrador"
+    },
+    {
+        "type": "Cat",
+        "name": "Murka",
+        "age": 3,
+        "color": "White",
+        "lives": 9
+    },
+    {
+        "type": "Animal",
+        "name": "Unknown",
+        "age": 2,
+        "color": "Gray"
+    }
+]
